@@ -84,7 +84,7 @@ const SingleFlashCard = ({ card }) => {
     <div className="bg-white shadow-md rounded-lg overflow-hidden">
       <div className="p-4">
         <h1 className="text-xl font-semibold mb-2">
-          {id} {groupname}
+           {groupname}
         </h1>
         <p className="text-gray-600">{description}</p>
       </div>
