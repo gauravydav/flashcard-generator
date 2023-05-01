@@ -38,11 +38,17 @@ const Myflashcard = () => {
       <h2 className="text-lg font-semibold mb-4">My Flashcards</h2>
       <div className="flex flex-wrap justify-center">
         {cards && cards.length > 0 ? (
-          <>
-            {cards.map((card, index) => (
-              <SingleFlashCard key={index} card={card} />
-            ))}
-          </>
+          <div className="mx-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:mx-12 md:mx-20 lg:mx-24 mt-6 gap-4 ">
+            <>
+              {cards.map((card, index) => (
+                <SingleFlashCard
+                  key={index}
+                  card={card}
+                  className="border border-gray-300 shadow-md"
+                />
+              ))}
+            </>
+          </div>
         ) : (
           <div className="mx-24 my-10 font-semibold text-xl">
             <h3 className="text-red-600 ">

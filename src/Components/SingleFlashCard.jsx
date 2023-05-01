@@ -1,109 +1,79 @@
-/*import React from "react";
-import { useDispatch } from "react-redux";
-//import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import {deleteCard} from "../Page/Redux/mySlice"
-
-const SingleFlashCard = ({ card }) => {
-  const { id, groupname, description } = card;
-  const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    dispatch(deleteCard(id));
-  };
-  return (
-    <>
-      <div class="bg-white shadow-md rounded-lg overflow-hidden">
-        <div class="p-4">
-          <h1 class="text-xl font-semibold mb-2"> {id} {groupname}</h1>
-          <p1 class="text-gray-600">{description}</p1>
-        </div>
-        <div class="p-4 flex justify-between items-center">
-          <Link to={`/flashCardDetails/${id}`}>
-            <button className="p-2 text-black-600 hover:text-gray-800">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm0 0l-3 3m0 0l-3-3m3 3V9"
-                />
-              </svg>
-              View
-            </button>
-          </Link>
-          <button
-            onClick={handleDelete}
-            class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-          >
-            <svg
-              class="-ml-1 mr-2 h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.293 5.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Delete
-          </button>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default SingleFlashCard;*/
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteCard } from "../Page/Redux/mySlice";
-import { GrView } from 'react-icons/gr';
-import { MdDelete} from 'react-icons/md';
-
+import { GrView } from "react-icons/gr";
+import { MdDelete } from "react-icons/md";
+import { useState } from "react";
 
 const SingleFlashCard = ({ card }) => {
-  const { id, groupname, description } = card;
+  const { id, groupname, description, flashterms } = card;
+  const flashtermsLength = flashterms.length;
+  const [imageURL, setImageURL] = useState(
+    "https://images.pexels.com/photos/4041242/pexels-photo-4041242.jpeg?auto=compress&cs=tinysrgb&w=600"
+  );
+
   const dispatch = useDispatch();
+  //const flashtermsLength = card.flashterms.length
+  console.log(flashtermsLength);
 
   const handleDelete = () => {
     dispatch(deleteCard(id));
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden">
-      <div className="p-4">
-        <h1 className="text-xl font-semibold mb-2">
-           {groupname}
+    <div className="border border-solid border-gray-300 shadow-md">
+  <div className="flex items-center px-3 pt-3 overflow-hidden">
+    {imageURL ? (
+      <img
+        className="w-16 h-16 object-cover rounded-full mr-3"
+        src={imageURL}
+        alt={groupname}
+      />
+    ) : (
+      <span className="flex items-center justify-center leading-3 text-gray-400 bg-red-100 h-12 w-12 rounded-full text-xs">
+        No Image
+      </span>
+    )}
+
+    <div className="flex flex-col justify-between ml-3 truncate">
+      <div>
+        <h1
+          data-testid="cardname"
+          className="font-bold text-sm overflow-hidden text-ellipsis"
+        >
+          {groupname}
         </h1>
-        <p className="text-gray-600">{description}</p>
+        <p className="text-xs">{flashtermsLength} cards</p>
       </div>
-      <div className="p-4 flex justify-between items-center">
+      <div className="px-4 my-1.5 h-24 overflow-y-scroll">
+        <div className="h-full">
+          <p className="break-words whitespace-pre-wrap">{description}</p>
+        </div>
+      </div>
+      {/*<div className="px-4 my-1.5 h-24 text-sm overflow-hidden">
+        <p className="break-words whitespace-pre-wrap">{description}</p>
+      </div>*/}
+      <div className="flex items-center justify-between">
         <Link to={`/flashCardDetails/${id}`}>
-          <button className="p-2 text-black-600 hover:text-gray-800 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-            <GrView/>
+          <button className="flex items-center text-yellow-700 font-semibold text-sm">
+            <span className="mr-1">
+              <GrView />
+            </span>
+            View
           </button>
         </Link>
         <button
           onClick={handleDelete}
           className="p-2 bg-red-600 text-white hover:bg-red-700 rounded-lg border border-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         >
-           <MdDelete/>
+          <MdDelete />
         </button>
       </div>
     </div>
-  );
+  </div>
+</div>
+);
 };
 
 export default SingleFlashCard;
-
