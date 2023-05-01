@@ -1,29 +1,3 @@
-/*import { NavLink } from "react-router-dom";
-import React from "react";
-
-const Navbar = () => {
-  return (
-    <div>
-      <div className="container ">
-        <div className="d-flex mt-1 ">
-          <div className="colors">
-            <NavLink to={"/"}>Create New   |</NavLink>
-          </div>
-          <div className="colors">
-            <NavLink to={"/myflashcards"}>  |     MyFlashCards</NavLink>
-          </div>
-        </div>
-
-        <hr className="hr-style" />
-        <div>
-          <label htmlFor=""></label>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Navbar;*/
 import React from "react";
 import { Link } from "react-router-dom";
 
