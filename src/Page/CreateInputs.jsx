@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import { useDispatch } from "react-redux";
-import { addCard } from "./Redux/mySlice";
+import { addCard, clearCard } from "./Redux/mySlice";
 import { MdUploadFile, MdAdd, MdDeleteOutline } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
 import { validationSchema } from "../Components/Validation";
@@ -15,20 +15,11 @@ const CreateInputs = () => {
     flashterms: [{ term: "", definition: "" }],
   };
 
-  const [values, setValues] = useState(initialValues);
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  }
-
   let dispatch = useDispatch();
-  let onSubmit = (values, actions) => {
+  const onSubmit = (values, actions) => {
     dispatch(addCard(values));
-    actions.resetForm();
+    alert("Card submitted successfully!");
+    window.location.hash = "/myflashcards";
   };
 
   return (
@@ -59,7 +50,7 @@ const CreateInputs = () => {
                     <div className="w-36 h-8 mt-2 sm:mt-5 sm:mx-4 border border-gray-400 rounded-sm hover:cursor-pointer ">
                       <div className="text-purple-700 ">
                         <span className="text-xs flex items-center justify-center font-semibold ">
-                        <MdUploadFile className="h-auto w-6 mt-1 mr-2 " />
+                          <MdUploadFile className="h-auto w-6 mt-1 mr-2 " />
                           Upload Image
                         </span>
                       </div>
@@ -97,7 +88,10 @@ const CreateInputs = () => {
                     {({ push, remove }) => (
                       <React.Fragment>
                         {values.flashterms.map((myterms, index) => (
-                          <div key={index} className="grid grid-cols-1 px-6 sm:px-10 sm:w-auto sm:flex">
+                          <div
+                            key={index}
+                            className="grid grid-cols-1 px-6 sm:px-10 sm:w-auto sm:flex"
+                          >
                             <div className="bg-green-500 mt-3  sm:mt-5 sm:mr-4 h-6 w-6 rounded-full text-white shrink-0">
                               <span className="flex items-center justify-center text-sm font-bold">
                                 {index + 1}
@@ -153,7 +147,6 @@ const CreateInputs = () => {
                           </div>
                         ))}
                         <button
-                        
                           onClick={() => push({ term: "", defination: "" })}
                           type="button"
                           className="flex font-semibold pt-4 pb-2 ml-6 sm:ml-16 text-blue-600"

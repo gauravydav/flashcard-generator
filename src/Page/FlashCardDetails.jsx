@@ -11,7 +11,6 @@ import { GrRedo } from "react-icons/gr";
 import { Link, useParams } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
-import { data } from "autoprefixer";
 
 const FlashCardDetails = () => {
   const params = useParams();
