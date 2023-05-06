@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
-import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
-import { useDispatch } from "react-redux";
-import { addCard, clearCard } from "./Redux/mySlice";
-import { MdUploadFile, MdAdd, MdDeleteOutline } from "react-icons/md";
-import { BiEdit } from "react-icons/bi";
-import { validationSchema } from "../Components/Validation";
-import { v4 as uuidv4 } from "uuid";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik"; // importing Formik components
+import { useDispatch } from "react-redux"; // importing useDispatch hook from react-redux library
+import { addCard, clearCard } from "./Redux/mySlice"; // importing addCard and clearCard actions from the mySlice slice
+import { MdUploadFile, MdAdd, MdDeleteOutline } from "react-icons/md"; // importing icons from react-icons/md library
+import { BiEdit } from "react-icons/bi"; // importing icon from react-icons/bi library
+import { validationSchema } from "../Components/Validation"; // importing validation schema from the Validation.js file
+import { v4 as uuidv4 } from "uuid"; // importing uuidv4 function to generate unique ids
 
 const CreateInputs = () => {
+  // Define the initial values for the form fields
   const initialValues = {
     id: uuidv4(),
     groupname: "",
@@ -15,13 +16,15 @@ const CreateInputs = () => {
     flashterms: [{ term: "", definition: "" }],
   };
 
+  // Get the dispatch method from Redux store
   let dispatch = useDispatch();
-  const onSubmit = (values, actions) => {
-    dispatch(addCard(values));
-    alert("Card submitted successfully!");
-    window.location.hash = "/myflashcards";
-  };
 
+  // Define the submit action when form is submitted
+  const onSubmit = (values, actions) => {
+    dispatch(addCard(values)); // Dispatch addCard action with form values
+    alert("Card submitted successfully!"); // Show success message
+    window.location.hash = "/myflashcards"; // Redirect to the My Flashcards page
+  };
   return (
     <>
       <Formik

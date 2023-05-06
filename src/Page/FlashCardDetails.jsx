@@ -13,14 +13,30 @@ import { Link, useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const FlashCardDetails = () => {
+  // Get the parameters from the URL using the `useParams` hook from React Router.
   const params = useParams();
   console.log(params);
+
+  // Get the `id` parameter from the URL using the `useParams` hook.
   const { id } = useParams();
+
+  // Get the `dispatch` function from the Redux store using the `useDispatch` hook.
   const dispatch = useDispatch();
+
+  // Get the current location using the `useLocation` hook from React Router.
   const location = useLocation();
+
+  // Get the `cardId` from the last segment of the current URL path.
   const cardId = location.pathname.split("/").pop();
+
+  // Get the list of cards from the Redux store using the `useSelector` hook.
   const cards = useSelector((state) => state.card.cards);
+
+  // Find the card with the matching `cardId` in the list of cards.
   const card = cards ? cards.find((card) => card.id === cardId) : null;
+
+  // Render the FlashCardDetails component.
+
   //state for handling flashterms definition for slider to show particular card term defination.
   const [slideIndex, setSlideIndex] = useState(1);
   const [imageURL, setImageURL] = useState(

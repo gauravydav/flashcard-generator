@@ -1,23 +1,25 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"; // importing useDispatch hook from react-redux library
 import { Link } from "react-router-dom";
-import { deleteCard } from "../Page/Redux/mySlice";
-import { GrView } from "react-icons/gr";
-import { MdDelete } from "react-icons/md";
-import { useState } from "react";
+import { deleteCard } from "../Page/Redux/mySlice"; // importing deleteCard function from mySlice.js file
+import { GrView } from "react-icons/gr"; // importing GrView icon from react-icons/gr library
+import { MdDelete } from "react-icons/md"; // importing MdDelete icon from react-icons/md library
+import { useState } from "react"; // importing useState hook from react library
 
 const SingleFlashCard = ({ card }) => {
-  const { id, groupname, description, flashterms } = card;
-  const flashtermsLength = flashterms.length;
+  // destructuring card object from props
+  const { id, groupname, description, flashterms } = card; // destructuring properties from card object
+  const flashtermsLength = flashterms.length; // getting length of flashterms array
   const [imageURL, setImageURL] = useState(
+    // creating state for imageURL and setting initial value
     "https://tse4.mm.bing.net/th?id=OIP.HayobH4JNWIwSjCB-3CibAHaF7&pid=Api&P=0"
   );
 
-  const dispatch = useDispatch();
-  console.log(flashtermsLength);
+  const dispatch = useDispatch(); // creating a dispatch function to call deleteCard function
 
   const handleDelete = () => {
-    dispatch(deleteCard(id));
+    // creating a function to handle card deletion
+    dispatch(deleteCard(id)); // calling deleteCard function with card id as argument
   };
 
   return (

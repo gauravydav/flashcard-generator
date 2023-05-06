@@ -11,6 +11,7 @@ const Myflashcard = () => {
     <div className="bg-purple-100 rounded-lg p-4">
       <h2 className="text-lg font-semibold mb-4">My Flashcards</h2>
       <div className="flex flex-wrap justify-center">
+      {/* check if cards.length>0 and show cards otherwise show no flashcard*/}
         {cards && cards.length > 0 ? (
           <div className="mx-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:mx-12 md:mx-20 lg:mx-24 mt-6 gap-4 ">
             <>
