@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Flashcard Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It helps to create multiple number of flashcards.
 
-## Available Scripts
+# Description
 
-In the project directory, you can run:
+We created this project with the help of Front-end technologies called HTML, tailwind CSS and JS library i.e., React JS and also used some of the libraries called Formik and Yup for React form validation.
+This project contains 3 mail compoents 
+1. Navbar : This is common for all the components.
+2. Create New : It is used to create multiple number of flashcards.
+3. My flashcards : In this component we can see all flashcards which are created.
+4. View card : By clicking on particular card in My-flashcards component, it will navigate to view card details page.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Front-End Development : React JS, HTML, Tailwind CSS and Good Amount of Javascript.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get a local copy up and running... follow these simple example steps.
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Node Should Be Installed in Your System.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Use clone method or download project using ZIP file in your your computer.
 
-### `npm run eject`
+Open project in vs code and follow the below steps in Vs terminal to install node-modules.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Method 1. Using downloaded ZIP file from GITHUB. 
+      
+1.Install node-modules
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2.Change directory
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd <project-name>
+```
 
-## Learn More
+3.Excution command (it will open localhost server)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Method 2. Using clone method.
 
-### Code Splitting
+1.Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+git clone https://github.com/github_username_/project-name.git
+```
 
-### Analyzing the Bundle Size
+2.Install NPM packages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm install
+```
 
-### Making a Progressive Web App
+3.Excution command
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+Note:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+If you are not able to use Tailwind CSS, open official Tailwind CSS website and Follow the steps to set up for React environment.
 
-### Deployment
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- []()
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements
+
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Font Awesome](https://fontawesome.com/)
+- [Formik for form handling](https://formik.org/docs/overview)
+- [YUP for form validation](https://www.npmjs.com/package/yup)
+- [Tailwind CSS](https://tailwindcss.com/)
